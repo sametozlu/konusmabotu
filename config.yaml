@@ -1,0 +1,67 @@
+# Akıllı Müşteri Hizmetleri Botu - Konfigürasyon Dosyası
+bot:
+  name: "Akıllı Müşteri Hizmetleri Asistanı"
+  version: "1.0.0"
+  language: "tr"  # Türkçe dil desteği
+
+# NLP Model Ayarları
+nlp:
+  # Sentiment Analysis için model
+  sentiment_model: "cardiffnlp/twitter-xlm-roberta-base-sentiment"
+  
+  # Intent Recognition için eğitim verileri
+  intent_data_path: "data/intent_training_data.json"
+  
+  # Güven eşiği (0.0 - 1.0 arası)
+  confidence_threshold: 0.7
+
+# Yanıt Şablonları
+responses:
+  # Genel karşılama mesajları
+  greeting: 
+    - "Merhaba! Size nasıl yardımcı olabilirim?"
+    - "Hoş geldiniz! Hangi konuda yardıma ihtiyacınız var?"
+  
+  # Bilinmeyen intent için
+  unknown:
+    - "Üzgünüm, sorunuzu tam olarak anlayamadım. Lütfen daha detaylı açıklayabilir misiniz?"
+    - "Bu konuda size yardımcı olmak için daha fazla bilgiye ihtiyacım var."
+  
+  # Olumsuz sentiment için
+  negative_sentiment:
+    - "Anlıyorum, bu durum sizi rahatsız etmiş. Size en iyi şekilde yardımcı olmaya çalışacağım."
+    - "Üzgünüm bu deneyimi yaşadığınız için. Sorununuzu çözmek için buradayım."
+
+# Intent Kategorileri ve Yanıtları
+intents:
+  product_info:
+    responses:
+      - "Ürünlerimiz hakkında detaylı bilgi verebilirim. Hangi ürünle ilgili soru sormak istiyorsunuz?"
+      - "Ürün kataloğumuzda çok çeşitli seçenekler bulunmaktadır. Size hangi kategoride yardımcı olabilirim?"
+  
+  order_status:
+    responses:
+      - "Sipariş durumunuzu kontrol etmek için sipariş numaranızı paylaşabilir misiniz?"
+      - "Siparişinizin güncel durumunu öğrenmek için sipariş numaranızı verebilir misiniz?"
+  
+  refund:
+    responses:
+      - "İade işlemi için size yardımcı olabilirim. Hangi ürünü iade etmek istiyorsunuz?"
+      - "İade sürecimiz hakkında bilgi verebilirim. Sipariş numaranızı paylaşır mısınız?"
+  
+  technical_support:
+    responses:
+      - "Teknik destek ekibimiz size yardımcı olacaktır. Hangi konuda sorun yaşıyorsunuz?"
+      - "Teknik sorununuzu çözmek için detaylı bilgiye ihtiyacım var. Sorunu açıklayabilir misiniz?"
+  
+  complaint:
+    responses:
+      - "Şikayetinizi ciddiye alıyoruz. Lütfen detaylı olarak açıklayabilir misiniz?"
+      - "Yaşadığınız sorun için özür dileriz. Size en hızlı şekilde çözüm bulacağız."
+
+# Loglama Ayarları
+logging:
+  level: "INFO"
+  file: "logs/bot.log"
+  max_size: "10MB"
+  backup_count: 5

@@ -1,0 +1,29 @@
+# Akıllı Müşteri Hizmetleri Botu - Minimal Gereksinimler
+# Python 3.13 ile uyumlu, daha az bağımlılık
+
+# Temel NLP
+textblob
+nltk
+
+# Web Framework
+flask
+flask-cors
+
+# Veri İşleme
+pandas
+numpy
+scikit-learn
+
+# Konfigürasyon
+pyyaml
+
+# Loglama
+loguru
+
+# Test
+pytest
+
+# Opsiyonel (büyük modeller için)
+# transformers
+# torch
+# spacy
